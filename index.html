@@ -133,7 +133,7 @@
                     if (sec < 10)
                         sec = "0" + sec; // adds a zero to the front if its less that 10
                     // this wil basically update the time that is on the screen to show time left in min
-                    document.getElementById("time").textContent = Math.floor(timeLeft / 60 + ":" + sec);
+                    document.getElementById("time").textContent = Math.floor(timeLeft / 60) + ":" + sec;
                     document.getElementById("liquid").style.height = (timeLeft / totalTime) * 100 + "%"; // modulus operator for height of beaker 
                 }
                 // runs every second
@@ -163,7 +163,10 @@
                 }
 
                 function reset() {
-                    location.reload(); // basically resets the program
+                    pause();
+                    timeLeft = timingoftheFocus;
+                    updateScreen();
+                    document.getElementById("mode").innerHTML = "Time to LOCK IN";
                 }
 
             </script>
