@@ -15,7 +15,7 @@ I basically made a pomodoro technique website that helps with science too. So it
 
 ## What did I learn from this???
 
-I learned many things while making this because this is the first project that I actually did good for javascript. So for me personally html and css is very easy, but the javascript was a challenge for me and yes it caused me problems but I got through them and it taught me that you gotta keep trying, even if you mess legit everything up lol. Ai helped with one thing which was how many milliseconds are in a second which is ... sad that I forgot . LOL.
+I learned many things while making this because this is the first project that I actually did good for javascript. So for me personally html and css is very easy, but the javascript was a challenge for me and yes it caused me problems but I got through them and it taught me that you gotta keep trying, even if you mess legit everything up lol. AI HELPED TOO A BIT especially for JS.
 
 **THE HARDEST THING WAS THE BEAKER BECAUSE IT GOES DOWN BASED ON THE TIME (made with js)**
 
