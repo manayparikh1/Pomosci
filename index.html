@@ -128,6 +128,14 @@
                     "Waters boiling point is 100 C and it's freezing point is 0 C.",
                 ];
 
+                function updateScreen() {
+                    let sec = timeLeft % 60; // uses the modulus operator to get the seconds left 
+                    if (sec < 10)
+                        sec = "0" + sec; // adds a zero to the front if its less that 10
+                    // this wil basically update the time that is on the screen to show time left in min
+                    document.getElementById("time").textContent = Math.floor(timeLeft / 60 + ":" + sec);
+
+                }
 
 
             </script>
