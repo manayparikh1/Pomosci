@@ -127,14 +127,14 @@
                     "The largest volcano ever is not even on Earth...it is on MARS! called Olympus Mons.",
                     "Waters boiling point is 100 C and it's freezing point is 0 C.",
                 ];
-
+                // MODULUS will be used, like in python to get the hiehgt of beaker
                 function updateScreen() {
                     let sec = timeLeft % 60; // uses the modulus operator to get the seconds left 
                     if (sec < 10)
                         sec = "0" + sec; // adds a zero to the front if its less that 10
                     // this wil basically update the time that is on the screen to show time left in min
                     document.getElementById("time").textContent = Math.floor(timeLeft / 60 + ":" + sec);
-
+                    document.getElementById("liquid").style.height = (timeLeft / totalTime) * 100 + "%"; // modulus operator for height of beaker 
                 }
                 // runs every second
                 function tick() {
@@ -150,8 +150,20 @@
                         document.getElementById("fact").textContent = facts[Math.floor(Math.random() * facts.length)];
                     }
                 }
+                // time for final three functions that will make the buttons actually function
 
 
+                function start() { // timer can begin counting down
+                    clearInterval(timer);
+                    timer = setInterval(tick, 1000); // 1000 mS is equal to one second
+                }
 
+                function pause() {
+                    clearInterval(timer); // timer pauses 
+                }
+
+                function reset() {
+                    location.reload(); // basically resets the program
+                }
 
             </script>
