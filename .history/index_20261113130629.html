@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><strong>PomoSci</strong></title>
+
+    <head>
+
+    <body>
+        <!-- ======== HTML ======== -->
+        <div class="lab_sci">
+            <h1>Welcome to PomoSci</h1>
+            <p id="mode">Time to <strong>Focus</strong></p>
+
+            <div class="beaker is paused" id="beaker">
+                <div id="liquid">
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                </div>
+            </div>
+            <div id="time">25:00</div>
+            <button onclick="start()">Start</button>
+            <button onclick="pause()">Pause</button>
+            <button onclick="reset()">Reset</button>
+
+            <p id="fact">Finish atleast one focus session to unlock a science FACT of the DAY!</p>
+            <p id="count">Experiments Completed: 0</p>
+
+            <!-- ====Css--===-->
+
+            <style>
+                body {
+                    margin: 0;
+                    min-height: 85vh;
+                    display: flex;
+
+
+                }
+            </style>
