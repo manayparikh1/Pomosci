@@ -112,7 +112,7 @@
 
             <!---- ==== JS ====== -->
             <script>
-                const timingoftheFocus = 10; // 25 minutes in seconds (60 sec 1 in min) which is about 1500 seconds
+                const timingoftheFocus = 25 * 60; // 25 minutes in seconds (60 sec 1 in min) which is about 1500 seconds
                 const breakTime = 5 * 60; // 5 minutes in seconds : which is 300 seconds
                 let timeLeft = timingoftheFocus;
                 let totalTime = timingoftheFocus;
@@ -144,9 +144,14 @@
                     }
                     else {
                         // BREAK TIME HERES A FACT basically the msg i wrote in the html it will print
-                        pause();
+                        completedSessions++;
+                        timeLeft = breakTime;
+                        totalTime = breakTime;
+                        document.getElementById("count").textContent = "Sessions that are completed: " + completedSessions; // added a space for concatenation
                         document.getElementById("mode").textContent = "It is time to take a ... BREAK!!!";
                         // imports math library to give random fact from the array i created
+                        timeLeft = timingOftheFocus; // resets the time left to 25 min
+                        totalTime = timingOftheFocus; // resets the total time to 25 min
                         document.getElementById("fact").textContent = facts[Math.floor(Math.random() * facts.length)];
                     }
                 }
