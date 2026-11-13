@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><strong>PomoSci</strong></title>
+
+    <head>
+
+    <body>
+        <!-- ======== HTML ======== -->
+        <div class="lab_sci">
+            <h1>Welcome to PomoSci</h1>
+            <p id="mode">Time to <strong>LOCK IN</strong></p>
+
+            <div class="beaker is paused" id="beaker">
+                <div id="liquid">
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                </div>
+            </div>
+            <div id="time">25:00</div>
+            <button onclick="start()">Start</button>
+            <button onclick="pause()">Pause</button>
+            <button onclick="reset()">Reset</button>
+
+            <p id="fact">Finish atleast one focus session to unlock a science <strong>FACT</strong> of the
+                <strong>DAY!</strong>
+            </p>
+            <p id="count">Sessions Completed: 0</p>
+
+            <!-- ====Css--===-->
+
+            <style>
+                body {
+                    font-family: Comic Sans MS, Comic Sans, cursive;
+                    background-color: rgb(4, 108, 188);
+                    text-align: center;
+                }
+
+                .lab_sci {
+                    background-color: rgb(195, 225, 253);
+                    width: 1454px;
+                    margin: 50px auto;
+                    padding: 25px;
+                    border: 3px solid black;
+                    border-radius: 22px;
+                }
+
+                h1 {
+                    color: rgb(44, 113, 166);
+                }
+
+                #mode {
+                    color: green;
+                    font-size: 18px;
+                }
+
+                .beaker {
+                    width: 122px;
+                    height: 190px;
+                    margin: 25px auto;
+                    border: 3px solid black;
+                    border-top: none;
+                    position: relative;
+                }
+
+                #liquid {
+                    background-color: rgb(160, 255, 160);
+                    height: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                }
+
+                #time {
+                    font-size: 44px;
+                    font-weight: bold;
+                    margin: 18px;
+                    font-family: 'Comic Sans MS', cursive, sans-serif;
+                }
+
+                button {
+                    background-color: rgb(14, 118, 14);
+                    color: white;
+                    padding: 10px 20px 10px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 6.7px;
+                }
+
+                button:hover {
+                    background-color: rgb(132, 212, 132);
+                    color: rgb(30, 30, 30);
+                    cursor: pointer;
+                    border: 4.5px solid rgb(55, 0, 0);
+                }
+
+                #fact {
+                    color: rgb(191, 85, 4);
+                    font-size: 18px;
+                }
+
+                #count {
+                    color: rgb(170, 36, 36);
+                    font-size: 14.px;
+                }
+            </style>
+
+            <!---- ==== JS ====== -->
+            <script>
+                const timingoftheFocus = 10; // 25 minutes in seconds (60 sec 1 in min) which is about 1500 seconds
+                const breakTime = 5 * 60; // 5 minutes in seconds : which is 300 seconds
+                let timeLeft = timingoftheFocus;
+                let totalTime = timingoftheFocus;
+                let overallOn = false;
+                let timer = null; // timer starts at the full time (25min)
+                let completedSessions = 0; // initial completing session
+
+                const facts = [
+                    "Lightning is about five times hotter than the suns surface!",
+                    "Sound travels approximately 4 times faster in water than in air.",
+                    "The human body has so much carbon inside that it can make around 900 pencils just from it.",
+                    "The largest volcano ever is not even on Earth...it is on MARS! called Olympus Mons.",
+                    "Waters boiling point is 100 C and it's freezing point is 0 C.",
+                ];
+                // MODULUS will be used, like in python to get the hiehgt of beaker
+                function updateScreen() {
+                    let sec = timeLeft % 60; // uses the modulus operator to get the seconds left 
+                    if (sec < 10)
+                        sec = "0" + sec; // adds a zero to the front if its less that 10
+                    // this wil basically update the time that is on the screen to show time left in min
+                    document.getElementById("time").textContent = Math.floor(timeLeft / 60) + ":" + sec;
+                    document.getElementById("liquid").style.height = (timeLeft / totalTime) * 100 + "%"; // modulus operator for height of beaker 
+                }
+                // runs every second
+                function tick() {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateScreen();
+                    }
+                    else {
+                        // BREAK TIME HERES A FACT basically the msg i wrote in the html it will print
+                        pause();
+                        document.getElementById("mode").textContent = "It is time to take a ... BREAK!!!";
+                        // imports math library to give random fact from the array i created
+                        document.getElementById("fact").textContent = facts[Math.floor(Math.random() * facts.length)];
+                    }
+                }
+                // time for final three functions that will make the buttons actually function
+
+
+                function start() { // timer can begin counting down
+                    clearInterval(timer);
+                    timer = setInterval(tick, 1000); // 1000 mS is equal to one second
+                }
+
+                function pause() {
+                    clearInterval(timer); // timer pauses 
+                }
+
+                function reset() {
+                    pause();
+                    timeLeft = timingoftheFocus; // resets the time left to 25 min
+                }
+
+            </script>
