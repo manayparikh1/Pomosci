@@ -2,6 +2,12 @@
 
 I basically made a pomodoro technique website that helps with science too. So it gives a 25 minutes timer to study and then after thats done you can take a 5 min break. It helps with many things such as active recall and memory becauase the human brain cannot **lock in** for a long period of time as many of you know so this will really help, and plus it gives a science fact for each session you do.
 
+
+#### BIG issue with time
+
+**A BIG ISSUE WAS THE COPILOT bC i only asked one question but i had it open in my vs code side bar and that tracks background time** now for future project i gotta remember to close it.
+
+
 ## Features
 
 - 25 Minute Study Timer
@@ -20,6 +26,7 @@ I learned many things while making this because this is the first project that I
 **THE HARDEST THING WAS THE BEAKER BECAUSE IT GOES DOWN BASED ON THE TIME (made with js)**
 
 ![img](pic.png)
+
 
 # PomoSci | 2026 | CUBED
 
