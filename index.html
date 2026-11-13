@@ -136,6 +136,22 @@
                     document.getElementById("time").textContent = Math.floor(timeLeft / 60 + ":" + sec);
 
                 }
+                // runs every second
+                function tick() {
+                    if (timeleft > 0) {
+                        timeLeft--;
+                        updateScreen();
+                    }
+                    else {
+                        // BREAK TIME HERES A FACT basically the msg i wrote in the html it will print
+                        pause();
+                        document.getElementById("mode").textContent = "It is time to take a ... BREAK!!!";
+                        // imports math library to give random fact from the array i created
+                        document.getElementById("fact").textContent = facts[Math.floor(Math.random() * facts.length)];
+                    }
+                }
+
+
 
 
             </script>
